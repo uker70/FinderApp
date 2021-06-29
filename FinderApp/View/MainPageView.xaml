@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:FinderApp.ViewModel;assembly=FinderApp"
+             x:Class="FinderApp.MainPageView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModel:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="DeepSkyBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="6" Source="earth.jpg" Aspect="Fill"/>
+
+        <Grid Row="1" RowSpan="2" Column="1" ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                   FontSize="46" Text="Finder" TextColor="LightGoldenrodYellow"/>
+
+        </Grid>
+
+        <Button BackgroundColor="#FF00BBFB" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" BorderWidth="1" BorderColor="Aqua" IsEnabled="False"/>
+        <Picker BackgroundColor="Transparent" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"
+                Title="Pick a Filter" FontSize="26" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                ItemsSource="{Binding Filters}" SelectedItem="{Binding SelectedFilter}"/>
+
+        <Button BackgroundColor="#FF00BBFB" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4"
+                Text="Find Others" TextTransform="None" FontSize="26" BorderColor="Aqua" BorderWidth="1"
+                Command="{Binding ChangeViewCommand}"/>
+    </Grid>
+
+</ContentPage>
